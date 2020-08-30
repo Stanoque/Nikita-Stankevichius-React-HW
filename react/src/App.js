@@ -5,7 +5,7 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <a href= 'http://localhost:8888'>Navigate to spotify login page</a>
+      <a className="login" href= 'http://localhost:8888'>Navigate to spotify login page</a>
     </div>
   );
 }
