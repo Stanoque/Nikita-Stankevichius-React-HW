@@ -1,0 +1,10 @@
+.playlistItem {
+  margin-bottom: 25px;
+  border: 1px lightseagreen solid;
+  border-radius: 15px;
+  padding: 10px 0;
+}
+
+.playlistImage {
+  width: 50%;
+}
