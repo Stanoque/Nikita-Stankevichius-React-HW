@@ -2,17 +2,18 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Header, ListOfAlbumItems, ListOfArtistItems, ListOfPlaylistItems, ListOfTrackItems, SearchForm } from './components';
+import { Authentificator, Header, ListOfAlbumItems, ListOfArtistItems, ListOfPlaylistItems, ListOfTrackItems, SearchForm } from './components';
 
 function App() {
   return (
     <div className="App">
-      <Header />
+      <Authentificator />
+      {/* <Header />
       <ListOfAlbumItems />
       <ListOfArtistItems />
       <ListOfPlaylistItems />
       <ListOfTrackItems />
-      <SearchForm />
+      <SearchForm /> */}
     </div>
   );
 }

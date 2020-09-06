@@ -15,7 +15,7 @@ var cookieParser = require('cookie-parser');
 
 var client_id = '7cc13947fd874bd18213eba3adcc19ab'; // Your client id
 var client_secret = 'ea9f7d7a8970492b923038318d975405'; // Your secret
-var redirect_uri = 'http://localhost:8888/callback'; // Your redirect uri
+var redirect_uri = 'http://localhost:3000/callback'; // Your redirect uri
 
 /**
  * Generates a random string containing numbers and letters
@@ -92,12 +92,13 @@ app.get('/callback', function(req, res) {
         var access_token = body.access_token,
             refresh_token = body.refresh_token;
 
+        console.log(`This is access token: ${access_token}`);
         var options = {
           url: 'https://api.spotify.com/v1/me',
           headers: { 'Authorization': 'Bearer ' + access_token },
           json: true
         };
-
+       
         // use the access token to access the Spotify Web API
         request.get(options, function(error, response, body) {
           console.log(body);
