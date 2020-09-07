@@ -1,5 +1,6 @@
 import React, {useState, useEffect, useCallback} from 'react';
 import {client_id, client_secret, redirect_uri, auth_link, token_link, search_endpoint} from '../../constants/userCredentials';
+import { getAccessToken } from '../../actions/authActions';
 
 const Authentificator = () => {
   const [isLogged, setLogin] = useState(false);
@@ -34,7 +35,9 @@ const Authentificator = () => {
           setAccessToken(access_token);
           setRefreshToken(refresh_token);
           setTokenType(token_type);
-        });
+          getAccessToken(access_token, refresh_token, token_type);
+        })
+        .catch(error => console.log(`Request failed, here's why: ${error}.`));
       } 
     } 
 
@@ -56,13 +59,19 @@ const Authentificator = () => {
       const {access_token, token_type} = decodedResponse;
       setAccessToken(access_token);
       setTokenType(token_type);
-    });
+    })
+    .catch(error => console.log(`Request failed, here's why: ${error}.`));
   }
 
 
   return (
     <div className="authentificator">
-      {isLogged ? <button onClick={getRefreshedToken} className="btn btn-primary">Refresh</button> :
+      {isLogged ?
+        <div>
+          <button onClick={getRefreshedToken} className="btn btn-primary">Refresh</button>
+          <button onClick={()=>{}} className="btn btn-secondary">Search</button>
+        </div>
+        :
         <a href={auth_link}>Log In</a>
       }
     </div> 
