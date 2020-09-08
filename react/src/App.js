@@ -1,11 +1,30 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Authentificator, Header, ListOfAlbumItems, ListOfArtistItems, ListOfPlaylistItems, ListOfTrackItems, SearchForm } from './components';
 
-function App() {
+
+const Main = () => (
+  <>
+    <Header />
+    <ListOfAlbumItems />
+    <ListOfArtistItems />
+    <ListOfPlaylistItems />
+    <ListOfTrackItems />
+    <SearchForm />
+  </>
+)
+
+function App({accessToken}) {
   return (
     <div className="App">
-      <a href= 'http://localhost:8888'>Navigate to spotify login page</a>
+      {
+        accessToken ? 
+        <Main />
+        :
+        <Authentificator />
+        
+      } 
     </div>
   );
 }
