@@ -3,23 +3,14 @@ import PropTypes from 'prop-types';
 import AlbumItem from './components/AlbumItem/AlbumItem';
 import cover from '../../assets/Cover_of_Gorgorod.jpg';
 
-const ALBUMS = [
-  {
-    name: 'Горгород',
-    spotifyLink: 'https://open.spotify.com/album/5dcOqAlvA3vzP3dPGBZ04E',
-    image: cover,
-    releaseDate: 'somewheere in 2015',
-    totalTracks: 10,
-    listOfArtists: ['Oxxxymiron'].join(', '),
-  }
-]
+export const ListOfAlbumItems = ({fetchedAlbums, searchAlbumes}) => {
+  const [albums, setAlbums] = useState(fetchedAlbums);
 
-const ListOfAlbumItems = () => {
-  const [albums, setAlbums] = useState(ALBUMS);
-  
+  console.log(albums);
+
   return (
     <ul className='container'>
-      {albums.map(album => 
+      {/* {albums.map(album => 
         <AlbumItem 
           name={album.name}
           spotifyLink={album.spotifyLink}
@@ -28,9 +19,7 @@ const ListOfAlbumItems = () => {
           totalTracks={album.totalTracks}
           listOfArtists={album.listOfArtists}
           />
-      )}
+      )} */}
     </ul>
   )
 }
-
-export default ListOfAlbumItems;

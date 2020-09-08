@@ -2,11 +2,7 @@ import {ARTIST_PREFIX} from '../actionTypes/prefixes';
 import {SEARCH_START, SEARCH_SUCCESS, SEARCH_FAILURE} from '../actionTypes/actionTypes';
 import INITIAL_STATE from './initialState';
 
-const initialState = {
-  artist: INITIAL_STATE
-}
-
-export const artistFetchReducer = (state = initialState, action) => {
+export const artistFetchReducer = (state = INITIAL_STATE, action) => {
   switch(action.type) {
     case `${ARTIST_PREFIX}${SEARCH_START}`:
       return {

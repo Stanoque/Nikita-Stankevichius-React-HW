@@ -2,11 +2,7 @@ import {PLAYLIST_PREFIX} from '../actionTypes/prefixes';
 import {SEARCH_START, SEARCH_SUCCESS, SEARCH_FAILURE} from '../actionTypes/actionTypes';
 import INITIAL_STATE from './initialState';
 
-const initialState = {
-  playlist: INITIAL_STATE
-}
-
-export const playlistFetchReducer = (state = initialState, action) => {
+export const playlistFetchReducer = (state = INITIAL_STATE, action) => {
   switch(action.type) {
     case `${PLAYLIST_PREFIX}${SEARCH_START}`:
       return {

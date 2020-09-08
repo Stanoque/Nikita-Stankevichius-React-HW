@@ -1,8 +1,7 @@
 import React, {useState, useEffect, useCallback} from 'react';
 import {client_id, client_secret, redirect_uri, auth_link, token_link, search_endpoint} from '../../constants/userCredentials';
-import { getAccessToken } from '../../actions/authActions';
 
-const Authentificator = () => {
+export const Authentificator = ({pushAccessToken}) => {
   const [isLogged, setLogin] = useState(false);
   const [accessToken, setAccessToken] = useState(null);
   const [refreshToken, setRefreshToken] = useState(null);
@@ -35,7 +34,7 @@ const Authentificator = () => {
           setAccessToken(access_token);
           setRefreshToken(refresh_token);
           setTokenType(token_type);
-          getAccessToken(access_token, refresh_token, token_type);
+          pushAccessToken(access_token, refresh_token, token_type);
         })
         .catch(error => console.log(`Request failed, here's why: ${error}.`));
       } 
@@ -59,6 +58,7 @@ const Authentificator = () => {
       const {access_token, token_type} = decodedResponse;
       setAccessToken(access_token);
       setTokenType(token_type);
+      pushAccessToken(access_token, refreshToken, token_type);
     })
     .catch(error => console.log(`Request failed, here's why: ${error}.`));
   }
@@ -77,5 +77,3 @@ const Authentificator = () => {
     </div> 
   )
 }
-
-export default Authentificator;

@@ -2,12 +2,7 @@ import {ALBUM_PREFIX} from '../actionTypes/prefixes';
 import {SEARCH_START, SEARCH_SUCCESS, SEARCH_FAILURE} from '../actionTypes/actionTypes';
 import INITIAL_STATE from './initialState';
 
-
-const initialState = {
-  album: INITIAL_STATE
-}
-
-export const albumFetchReducer = (state = initialState, action) => {
+export const albumFetchReducer = (state = INITIAL_STATE, action) => {
   switch(action.type) {
     case `${ALBUM_PREFIX}${SEARCH_START}`:
       return {

@@ -6,9 +6,9 @@ import { trackFetchReducer } from './trackReducers';
 import { tokenReducer } from './authReducers';
 
 export default combineReducers({
-  albumFetchReducer,
-  artistFetchReducer,
-  playlistFetchReducer,
-  trackFetchReducer,
-  tokenReducer,
+  album: albumFetchReducer,
+  artist: artistFetchReducer,
+  playlist: playlistFetchReducer,
+  track: trackFetchReducer,
+  auth: tokenReducer,
 })

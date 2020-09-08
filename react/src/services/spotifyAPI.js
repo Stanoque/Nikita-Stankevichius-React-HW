@@ -1,4 +1,4 @@
-const fetchSearchResults = (queryValues, type, search_endpoint, tokenType, accessToken, actionSuccess, actionFailure, dispatch, limit=20, offset=0) => {
+export const fetchSearchResults = (queryValues, type, search_endpoint, tokenType, accessToken, actionSuccess, actionFailure, dispatch, limit=20, offset=0) => {
   const q = queryValues.reduce((acc, queryValue) => {
     acc += `%20${queryValue}`;
     return acc;
@@ -18,5 +18,3 @@ const fetchSearchResults = (queryValues, type, search_endpoint, tokenType, acces
     dispatch(actionFailure(error));
   });
 }
-
-export default fetchSearchResults;

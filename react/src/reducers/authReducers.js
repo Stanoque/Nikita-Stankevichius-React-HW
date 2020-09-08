@@ -1,6 +1,7 @@
 import {GET_ACCESS_TOKEN, REFRESH_TOKEN_START, REFRESH_TOKEN_SUCCESS, REFRESH_TOKEN_FAILURE} from '../actionTypes/actionTypes';
 
 const initialState = {
+  isLogged: false,
   isRequesting: false,
 }
 
