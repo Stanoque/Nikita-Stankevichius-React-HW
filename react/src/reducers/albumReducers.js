@@ -7,25 +7,19 @@ export const albumFetchReducer = (state = INITIAL_STATE, action) => {
     case `${ALBUM_PREFIX}${SEARCH_START}`:
       return {
         ...state,
-        album: {
-          isLoading: true
-        }
+        isLoading: true
       };
     case `${ALBUM_PREFIX}${SEARCH_SUCCESS}`:
       return {
         ...state,
-        album: {
-          isLoading: false,
-          data: action.payload,
-        }
+        isLoading: false,
+        data: action.payload.albums.items,
       }
     case `${ALBUM_PREFIX}${SEARCH_FAILURE}`:
       return {
         ...state,
-        album: {
-          isLoading: false,
-          error: action.payload,
-        }
+        isLoading: false,
+        error: action.payload,
       }
     default: return state;
   }

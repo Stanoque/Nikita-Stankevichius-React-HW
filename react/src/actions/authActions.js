@@ -1,16 +1,14 @@
-import { GET_ACCESS_TOKEN, LOG_IN, REFRESH_TOKEN_START, REFRESH_TOKEN_SUCCESS, REFRESH_TOKEN_FAILURE } from '../actionTypes/actionTypes';
+import { GET_ACCESS_TOKEN, REFRESH_TOKEN_START, REFRESH_TOKEN_SUCCESS, REFRESH_TOKEN_FAILURE } from '../actionTypes/actionTypes';
 import {client_id, client_secret, token_link} from '../constants/userCredentials';
 
-export const getAccessToken = (accessToken, refreshToken, tokenType) => {
-  alert(GET_ACCESS_TOKEN);
-  return ({
+export const getAccessToken = (accessToken, refreshToken, tokenType) => ({
   type: GET_ACCESS_TOKEN,
   payload: {
     accessToken,
     refreshToken,
     tokenType,
   }
-})};
+});
 
 export const refreshToken = (refreshToken) => {
   return dispatch => {
@@ -52,3 +50,4 @@ const refreshTokenFailure = (error) => ({
     error,
   }
 })
+

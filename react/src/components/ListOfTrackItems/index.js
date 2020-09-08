@@ -4,6 +4,8 @@ import { ListOfTrackItems } from './ListOfTrackItems';
 
 const mapStateToProps = state => ({
   fetchedTracks: state.track.data,
+  tokenType: state.auth.tokenType,
+  accessToken: state.auth.accessToken,
 })
 
 const mapDispatchToProps = dispatch => {

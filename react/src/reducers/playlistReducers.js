@@ -7,25 +7,20 @@ export const playlistFetchReducer = (state = INITIAL_STATE, action) => {
     case `${PLAYLIST_PREFIX}${SEARCH_START}`:
       return {
         ...state,
-        playlist: {
-          isLoading: true,
-        }
+        isLoading: true,
       };
     case `${PLAYLIST_PREFIX}${SEARCH_SUCCESS}`:
       return {
         ...state,
-        playlist: {
-          isLoading: false,
-          data: action.payload,
-        }
+        isLoading: false,
+        data: action.payload.playlists.items,
+
       }
     case `${PLAYLIST_PREFIX}${SEARCH_FAILURE}`:
       return {
         ...state,
-        playlist: {
-          isLoading: false,
-          error: action.payload,
-        }
+        isLoading: false,
+        error: action.payload,
       }
     default: return state;
   }

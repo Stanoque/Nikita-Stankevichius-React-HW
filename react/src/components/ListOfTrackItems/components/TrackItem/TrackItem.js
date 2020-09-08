@@ -14,7 +14,7 @@ const TrackItem = ({ name, spotifyLink, duration, popularity, albumName, albumSp
     return `${minutes}:${seconds}`;
   }
   const parsedDuration = parseDuration(duration);
-  console.log(duration);
+
   return(
     <li className='col-12 row trackItem'>
       <div className='col-12 row'>

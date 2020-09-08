@@ -7,25 +7,19 @@ export const trackFetchReducer = (state = INITIAL_STATE, action) => {
     case `${TRACK_PREFIX}${SEARCH_START}`:
       return {
         ...state,
-        track: {
-          isLoading: true,
-        }
+        isLoading: true,
       };
     case `${TRACK_PREFIX}${SEARCH_SUCCESS}`:
       return {
         ...state,
-        track: {
-          isLoading: false,
-          data: action.payload,
-        }
+        isLoading: false,
+        data: action.payload.tracks.items,
       }
     case `${TRACK_PREFIX}${SEARCH_FAILURE}`:
       return {
         ...state,
-        track: {
-          isLoading: false,
-          error: action.payload,
-        }
+        isLoading: false,
+        error: action.payload,
       }
     default: return state;
   }

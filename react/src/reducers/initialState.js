@@ -1,6 +1,6 @@
 const INITIAL_STATE = {
   isLoading: false,
-  data: {},
+  data: []
 }
 
 export default INITIAL_STATE;

@@ -1,9 +1,17 @@
 export const fetchSearchResults = (queryValues, type, search_endpoint, tokenType, accessToken, actionSuccess, actionFailure, dispatch, limit=20, offset=0) => {
+  
   const q = queryValues.reduce((acc, queryValue) => {
-    acc += `%20${queryValue}`;
+    if(acc) {
+      acc += ` ${queryValue}`;
+    } else {
+      acc += queryValue;
+    }
     return acc;
   }, '')
-  const searchLink = `${search_endpoint}?q=${q}&type=${type}&limit=${limit}&offset=${offset}`;
+
+  const searchLink = `${search_endpoint}?q=${encodeURIComponent(q)}&type=${type}&limit=${limit}&offset=${offset}`;
+
+
   fetch(searchLink, {
     headers: {
       'Authorization': `${tokenType} ${accessToken}`,

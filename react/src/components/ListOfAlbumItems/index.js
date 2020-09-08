@@ -4,6 +4,8 @@ import { ListOfAlbumItems } from './ListOfAlbumItems';
 
 const mapStateToProps = state => ({
   fetchedAlbums: state.album.data,
+  tokenType: state.auth.tokenType,
+  accessToken: state.auth.accessToken,
 })
 
 const mapDispatchToProps = dispatch => {

@@ -16,7 +16,6 @@ const Main = () => (
 )
 
 function App({accessToken}) {
-  alert(accessToken);
   return (
     <div className="App">
       {

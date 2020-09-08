@@ -7,25 +7,19 @@ export const artistFetchReducer = (state = INITIAL_STATE, action) => {
     case `${ARTIST_PREFIX}${SEARCH_START}`:
       return {
         ...state,
-        artist: {
-          isLoading: true,
-        }
+        isLoading: true,
       };
     case `${ARTIST_PREFIX}${SEARCH_SUCCESS}`:
       return {
         ...state,
-        artist: {
-          isLoading: false,
-          data: action.payload,
-        }
+        isLoading: false,
+        data: action.payload.artists.items,
       }
     case `${ARTIST_PREFIX}${SEARCH_FAILURE}`:
       return {
         ...state,
-        artist: {
-          isLoading: false,
-          error: action.payload,
-        }
+        isLoading: false,
+        error: action.payload,
       }
     default: return state;
   }
