@@ -1,16 +1,36 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Field, reduxForm } from 'redux-form'
 
-const ListOfLimitButtons = () => {
+
+const LimitButtons = (props) => {
+
+  const { input: { onChange } } = props;
+  return (
+    <>
+      <button value={20} type="submit" className="btn btn-primary" onClick={() => onChange(20)}>20</button>
+      <button value={30} type="submit" className="btn btn-primary" onClick={() => onChange(30)}>30</button>
+      <button value={40} type="submit" className="btn btn-primary" onClick={() => onChange(40)}>40</button>
+      <button value={50} type="submit" className="btn btn-primary" onClick={() => onChange(50)}>50</button>
+    </>
+)
+}
+
+
+let ListOfLimitButtons = ({handleSubmit}) => {
+
   return (
     <div className="col-12 row container justify-content-around">
-        <button type="button" className="btn btn-light">20</button>
-        <button type="button" className="btn btn-light">30</button>
-        <button type="button" className="btn btn-light">40</button>
-        <button type="button" className="btn btn-light">50</button>
+      <form onSubmit={handleSubmit}>
+        <Field name="limit" component={LimitButtons} />
+      </form>
     </div>
   )
 }
+
+ListOfLimitButtons = reduxForm({
+  form: 'limit',
+})(ListOfLimitButtons);
 
 export default ListOfLimitButtons;
 

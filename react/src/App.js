@@ -7,11 +7,11 @@ import { Authentificator, Header, ListOfAlbumItems, ListOfArtistItems, ListOfPla
 const Main = () => (
   <>
     <Header />
+    <SearchForm />
     <ListOfAlbumItems />
     <ListOfArtistItems />
     <ListOfPlaylistItems />
     <ListOfTrackItems />
-    <SearchForm />
   </>
 )
 

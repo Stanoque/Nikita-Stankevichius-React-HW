@@ -4,6 +4,7 @@ import { artistFetchReducer } from './artistReducers';
 import { playlistFetchReducer } from './playlistReducers';
 import { trackFetchReducer } from './trackReducers';
 import { tokenReducer } from './authReducers';
+import { reducer as formReducer } from 'redux-form';
 
 export default combineReducers({
   album: albumFetchReducer,
@@ -11,4 +12,5 @@ export default combineReducers({
   playlist: playlistFetchReducer,
   track: trackFetchReducer,
   auth: tokenReducer,
+  form: formReducer,
 })

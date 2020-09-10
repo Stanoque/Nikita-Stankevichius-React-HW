@@ -1,18 +1,19 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import SearchField from './components/SearchField/SearchField';
-import SearchButton from './components/SearchButton/SearchButton';
 import ListOfLimitButtons from './components/ListOfLimitButtons/ListOfLimitButtons';
 import ListOfTypeButtons from './components/ListOfTypeButtons/ListOfTypeButtons';
+
+const submit = (values) => {
+  console.log(values);
+}
 
 const SearchForm = () => {
   return (
     <div className="container searchForm">
       <form>
-        <SearchField />
-        <ListOfTypeButtons />
-        <ListOfLimitButtons />
-        <SearchButton />
+        <SearchField onSubmit={submit}/>
+        <ListOfTypeButtons onSubmit={submit}/>
+        <ListOfLimitButtons onSubmit={submit}/>
       </form>
     </div>
   )
