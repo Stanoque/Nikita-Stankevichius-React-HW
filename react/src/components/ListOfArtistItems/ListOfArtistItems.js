@@ -4,12 +4,12 @@ import ArtistItem from './components/ArtistItem/ArtistItem';
 
 const ARTIST_TYPE = 'artist';
 
-export const ListOfArtistItems = ({fetchedArtists, searchArtists, accessToken, tokenType}) => {
+export const ListOfArtistItems = ({fetchedArtists, searchArtists, accessToken, tokenType, queryValues, limit}) => {
   const [artists, setArtists] = useState(fetchedArtists);
   
   useEffect(() => {
-    searchArtists(['oxxxy', 'miron'], ARTIST_TYPE, tokenType, accessToken, 3);
-  }, []);
+    searchArtists(queryValues, ARTIST_TYPE, tokenType, accessToken, limit);
+  }, [limit]);
 
   useEffect(() => {
     setArtists(fetchedArtists);

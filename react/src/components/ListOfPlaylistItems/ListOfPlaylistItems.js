@@ -5,13 +5,13 @@ import cover from '../../assets/Cover_of_Gorgorod.jpg';
 
 const PLAYLIST_TYPE = 'playlist';
 
-export const ListOfPlaylistItems = ({fetchedPlaylists, searchPlaylists, tokenType, accessToken}) => {
+export const ListOfPlaylistItems = ({fetchedPlaylists, searchPlaylists, tokenType, accessToken, queryValues, limit}) => {
   const [playlists, setPlaylists] = useState(fetchedPlaylists);
   
   console.log(playlists);
   useEffect(() => {
-    searchPlaylists(['Oxxxymiron'], PLAYLIST_TYPE, tokenType, accessToken, 3);
-  }, []);
+    searchPlaylists(queryValues, PLAYLIST_TYPE, tokenType, accessToken, limit);
+  }, [limit]);
 
   useEffect(() => {
     setPlaylists(fetchedPlaylists);

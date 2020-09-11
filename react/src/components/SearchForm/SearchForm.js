@@ -1,11 +1,10 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import SearchField from './components/SearchField/SearchField';
 import ListOfLimitButtons from './components/ListOfLimitButtons/ListOfLimitButtons';
 import ListOfTypeButtons from './components/ListOfTypeButtons/ListOfTypeButtons';
 
-const submit = (values) => {
-  console.log(values);
-}
+const submit = (values) => {}
 
 const SearchForm = () => {
   return (
@@ -18,5 +17,6 @@ const SearchForm = () => {
     </div>
   )
 }
+
 
 export default SearchForm;

@@ -5,12 +5,12 @@ import cover from '../../assets/Cover_of_Gorgorod.jpg';
 
 const ALBUM_TYPE = 'album';
 
-export const ListOfAlbumItems = ({fetchedAlbums, searchAlbums, tokenType, accessToken}) => {
+export const ListOfAlbumItems = ({fetchedAlbums, searchAlbums, tokenType, accessToken, queryValues, limit}) => {
   const [albums, setAlbums] = useState(fetchedAlbums);
 
   useEffect(() => {
-    searchAlbums(['Горгород'], ALBUM_TYPE, tokenType, accessToken, 3);
-  }, []);
+    searchAlbums(queryValues, ALBUM_TYPE, tokenType, accessToken, limit);
+  }, [limit]);
 
   useEffect(() => {
     setAlbums(fetchedAlbums);

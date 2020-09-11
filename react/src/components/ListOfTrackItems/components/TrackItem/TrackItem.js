@@ -6,8 +6,8 @@ const TrackItem = ({ name, spotifyLink, duration, popularity, albumName, albumSp
   
   const parseDuration = (duration) => {
 
-    const seconds = (duration/100) % 60;
-    const minutes = ((duration/100) - seconds)/60;
+    const seconds = Math.trunc((duration/100) % 60);
+    const minutes = Math.trunc(((duration/100) - seconds)/600);
 
     
     

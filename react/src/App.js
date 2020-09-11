@@ -4,23 +4,31 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Authentificator, Header, ListOfAlbumItems, ListOfArtistItems, ListOfPlaylistItems, ListOfTrackItems, SearchForm } from './components';
 
 
-const Main = () => (
+const Main = ({type}) => (
   <>
     <Header />
     <SearchForm />
-    <ListOfAlbumItems />
-    <ListOfArtistItems />
-    <ListOfPlaylistItems />
-    <ListOfTrackItems />
+      {type==='album' ?
+          <ListOfAlbumItems />
+        : type==='artist' ?
+          <ListOfArtistItems />
+        : type==='playlist' ?
+          <ListOfPlaylistItems />
+        : type==='track' ?
+          <ListOfTrackItems />
+        : null
+      }
   </>
 )
 
-function App({accessToken}) {
+function App({accessToken, type, state}) {
+  
   return (
     <div className="App">
       {
         accessToken ? 
-        <Main />
+        <Main type={type} />
+        
         :
         <Authentificator />
         

@@ -4,12 +4,12 @@ import TrackItem from './components/TrackItem/TrackItem';
 
 const TRACK_TYPE = 'track';
 
-export const ListOfTrackItems = ({fetchedTracks, searchTracks, tokenType, accessToken}) => {
+export const ListOfTrackItems = ({fetchedTracks, searchTracks, tokenType, accessToken, queryValues, limit}) => {
   const [tracks, setTracks] = useState(fetchedTracks);
   
   useEffect(() => {
-    searchTracks(['Oxxxymiron'], TRACK_TYPE, tokenType, accessToken, 3);
-  }, []);
+    searchTracks(queryValues, TRACK_TYPE, tokenType, accessToken, limit);
+  }, [limit]);
 
   useEffect(() => {
     setTracks(fetchedTracks);

@@ -4,6 +4,7 @@ import { Provider } from 'react-redux'
 import { connect } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk';
+import { get } from 'lodash';
 import reducers from './reducers'
 import './index.css';
 import App from './App';
@@ -12,10 +13,14 @@ import * as serviceWorker from './serviceWorker';
 const store = createStore(reducers, applyMiddleware(thunk));
 
 const mapStateToProps = state => ({
-  accessToken: state.auth.accessToken
+  accessToken: state.auth.accessToken,
+  type: get(state, 'form.type.values.type', null),
+  limit: get(state, 'form.limit.values.limit', null),
+  state: state,
 });
 
 const WrappedApp = connect(mapStateToProps, null)(App);
+
 
 ReactDOM.render(
   <Provider store={store}>
